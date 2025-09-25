@@ -16,11 +16,11 @@ This repository contains comprehensive Spark performance benchmarks on ARM64 arc
 
 ### Single Benchmark Results (12 cores)
 
-| Benchmark | Scala | Python | Winner |
-|-----------|-------|--------|--------|
-| **Transformation** (100M records) | 1.37s | 1.56s | ✅ **Scala** (14% faster) |
-| **SQL Query** (50M records) | 0.42s | 0.37s | ✅ **Python** (13% faster) |
-| **Parquet I/O** (10M records) | 1.56s | 1.55s | ≈ **Tie** (< 1% difference) |
+| Benchmark                       | Scala | Python | Winner |
+|---------------------------------|-------|--------|--------|
+| **Transformation** (50 records) | 1.37s | 1.56s | ✅ **Scala** (14% faster) |
+| **SQL Query** (25M records)     | 0.42s | 0.37s | ✅ **Python** (13% faster) |
+| **Parquet I/O** (5M records)    | 1.56s | 1.55s | ≈ **Tie** (< 1% difference) |
 
 ### Key Findings:
 - **Scala**: Better for data transformations and complex processing
@@ -71,17 +71,17 @@ This repository contains comprehensive Spark performance benchmarks on ARM64 arc
 
 ### (a) Transformation Benchmark
 - **Operation**: Filter even numbers from large datasets
-- **Dataset Sizes**: 50M - 100M records
+- **Dataset Sizes**: 5M records (language comparison), 50M records (core scaling)
 - **Performance**: Scala slightly faster, excellent parallelization
 
 ### (b) SQL Query Benchmark
 - **Operation**: Aggregate functions (avg, count) using Catalyst optimizer
-- **Dataset Sizes**: 25M - 50M records
+- **Dataset Sizes**: 25M records (language comparison), 25M records (core scaling)
 - **Performance**: Python marginally faster, leverages optimized SQL engine
 
 ### (c) Parquet I/O Benchmark
 - **Operation**: Write/read columnar data with Snappy compression
-- **Dataset Sizes**: 5M - 10M records
+- **Dataset Sizes**: 5M records (language comparison), 5M records (core scaling)
 - **Performance**: Nearly identical, I/O bound operations
 
 ## Files in Repository
